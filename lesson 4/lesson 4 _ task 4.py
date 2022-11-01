@@ -1,7 +1,7 @@
-name = "anna"
-if name.isupper():
-    print("False")
-elif name.islower():
+# program that verifies the name, despite the letter case
+name = input("Please insert your name here: ")
+
+for i in name:
+    name = name.lower()
     print("True")
-else:   #if only the 1st leter is upper case
-    print("True")
+    break
