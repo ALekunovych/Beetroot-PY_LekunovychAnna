@@ -1,12 +1,16 @@
 # program that verifies the name, despite the letter case
-name = input("Please insert your name here: ")
 
-for i in name:
-    name = name.lower()
-    print("True")
-    break
+a = ["Anna", "Anton", "Yulia", "Valentyn"]
 
-# or below (code is even shorter)
+name = input("Please enter your name: ")
 
-name = input("Please insert your name here: ").lower()
-print(name == name.lower())
+for i in a:
+    if i.lower() == name.lower():
+        print(f"Hello, {i}!")
+        break
+else:
+    print("User not found")
+
+
+
+
