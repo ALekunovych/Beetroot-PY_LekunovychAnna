@@ -83,10 +83,10 @@ class Library:
             print("This book already exist in library. You can find it on the shelves.")
 
     def group_by_author(self, author: Author):
-        return [book for book in self.books_list if book.author == author]
+        return [book.name for book in self.books_list if book.author == author]
 
     def group_by_year(self, year: int):
-        return [book for book in self.books_list if book.year == year]
+        return [book.name for book in self.books_list if book.year == year]
 
     def __repr__(self):
         return f"Object of a Library class: {self.name}"
@@ -164,6 +164,7 @@ if __name__ == "__main__":
     print(l1.new_book("It", 1995, a1))
     print(l1.new_book("Thursday Murder Club", 2019, a2))
     print(l1.new_book("It", 2000, a1))
+    b1 = Book("Pet cemetery", 1994, a1)
     print(l1.group_by_author(a1))
     print(l1.group_by_year(1995))
     # task3
