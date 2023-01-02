@@ -17,35 +17,45 @@ class Validator:
 c = Validator(".abc@mail.com")
 c1 = Validator("abc.def@mail-archive.com")
 
-#task 2   ??????
+#task 2
+class Boss:
 
-# class Boss:
-#
-#     def __init__(self, id_: int, name: str, company: str):
-#         self.id = id_
-#         self.name = name
-#         self.company = company
-#         self.workers = []
-#
-#     def __get__(self, instance, owner):
-#         return instance.__dict__[self.]
-#
-#
-#
-# class Worker:
-#
-#     name = Boss()
-#
-#     def __init__(self, id_: int, name: str, company: str, boss: Boss):
-#         self.id = id_
-#         self.name = name
-#         self.company = company
-#         self.boss = boss
-#
-#     @property
-#     def w_name(self):
-#         return self.name
+    def __init__(self, id_: int, name: str, company: str):
+        self.id = id_
+        self.name = name
+        self.company = company
+        self._workers = []
 
+    @property
+    def workers_list(self):
+        return self._workers
+
+    @workers_list.setter
+    def workers_list(self, worker):
+        if isinstance(worker, Worker):
+            if self.company == worker.company:
+                self._workers.append(worker)
+        else:
+            print("This is not worker")
+
+
+class Worker:
+
+    def __init__(self, id_: int, name: str, company: str, boss: Boss):
+        self.id = id_
+        self.name = name
+        self.company = company
+        self.boss = boss
+
+    def __str__(self):
+        return f"ID: {self.id}; Name: {self.name}; Company: {self.company}; Boss name: {boss.name} "
+
+b1 = Boss(76, "Aiman", "SLB")
+b2 = Boss(648, "Ruslan", "SLB")
+w1 = Worker(234, "Anna", "SLB", b1)
+b1.workers_list = w1
+b1.workers_list = b2
+print(b1.workers_list)
 
 #task 3
 
